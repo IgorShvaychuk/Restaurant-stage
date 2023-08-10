@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+	<div th:replace="template :: navigation"></div>
+
+	<h1>Customer Information</h1>
+	<h2>General</h2>
+	<table>
+		<tr>
+			<td><label>Phone Number</label></td>
+			<td><label th:text="${customer.phoneNumber}"></label></td>
+		</tr>
+		<tr>
+			<td><label>First Name</label></td>
+			<td><label th:text="${customer.firstName}"></label></td>
+		</tr>
+		<tr>
+			<td><label>Last Name</label></td>
+			<td><label th:text="${customer.lastName}"></label></td>
+		</tr>
+		<tr>
+			<td><label>Email</label></td>
+			<td><label th:text="${customer.email}"></label></td>
+		</tr>
+
+	</table>
+	<p>
+		<a th:href="'/updatecustomer/'+${customer.uid}">Update Customer</a>
+	</p>
+
+	<h2>Menu</h2>
+	<div>
+		<span th:each="menuitem:${menuitems}"><a
+			th:href="'/addtocart/'+${customer.uid}+'/'+${menuitem.uid}"
+			th:text="${menuitem.name}"></a> | </span>
+	</div>
+	<h2>Cart</h2>
+	<table border="1">
+		<tr>
+			<th>Quantity</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Remove Item</th>
+		</tr>
+		<tr th:each="cartitem:${cartitems}">
+			<td th:text="${cartitem.quantity}"></td>
+			<td th:text="${cartitem.menuItem.name}"></td>
+			<td th:text="${#numbers.formatDecimal(cartitem.price, 0,'COMMA', 2, 'POINT')}"></td>
+			<td><a
+				th:href="'/removefromcart/'+${customer.uid}+'/'+${cartitem.uid}"
+				th:text="Remove"></a></td>
+		</tr>
+
+
+
+	</table>
+	<p>
+		Total Price: $<span th:text="${#numbers.formatDecimal(totalPrice, 0,'COMMA', 2, 'POINT')}"></span>
+	</p>
+
+	<h2>Recommendations</h2>
+	<div>
+		<span th:each="menuitem:${recommendations}"><a
+			th:href="'/addtocart/'+${customer.uid}+'/'+${menuitem.uid}"
+			th:text="${menuitem.name}"></a> | </span>
+	</div>
+	
+	<h2>Order History</h2>
+	<table border="1">
+		<tr>
+			<th>Quantity</th>
+			<th>Name</th>
+			<th>Last Order Date</th>
+		</tr>
+		<tr th:each="oh: ${orderhistory}">
+			<td th:text="${oh.quantity}"></td>
+			<td th:text="${oh.menuItem.name}"></td>
+			<td th:text="${#dates.format(oh.orderDate, 'MM-dd-yyyy hh:mm:ss a')}"></td>
+		</tr>
+
+	</table>
+	<br></br>
+	<form th:action="'/submitorder/'+${customer.uid}" method="GET">
+		<button type="submit">Submit Order</button>
+	</form>
+	<span class="error" th:text="${order_error}"></span>
+</body>
+</html>

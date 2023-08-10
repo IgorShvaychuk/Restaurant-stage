@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="">
+<head th:fragment="dochead">
+	<link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+	<title>What Ya Eating?</title>
+</head>
+
+<body>
+
+<nav th:fragment="navigation">
+	<ul id="user-account">
+	    <li><a href="/login">Employee Login</a></li>
+	    <li><a href="/logout">Employee Logout</a></li>
+	</ul>
+	<ul>
+        <li><a href="/customerlookup">Customer Lookup</a></li>
+        <li><a href="/menu">Menu</a></li>
+        
+    </ul>
+</nav>
+
+</body>
+</html>

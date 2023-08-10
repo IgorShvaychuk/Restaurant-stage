@@ -1,8 +1,8 @@
-package com.restaurant.app.management.security;
+package com.restaurant.app.management;
 
-import org.launchcode.restaurant.controllers.AbstractController;
-import org.launchcode.restaurant.models.Employee;
-import org.launchcode.restaurant.models.dao.EmployeeDao;
+import com.restaurant.app.management.controllers.AbstractController;
+import com.restaurant.app.management.model.Employee;
+import com.restaurant.app.management.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
