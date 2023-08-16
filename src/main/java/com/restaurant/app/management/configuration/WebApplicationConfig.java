@@ -1,6 +1,6 @@
-package com.restaurant.app.management;
+package com.restaurant.app.management.configuration;
 
-import com.restaurant.app.management.AuthenticationInterceptor;
+import com.restaurant.app.management.security.AuthenticationInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

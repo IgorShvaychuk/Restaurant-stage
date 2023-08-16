@@ -17,14 +17,7 @@
     </tr>
     <tr th:each = "employee  : ${employees}">
         <td><h2><a href="/login" th:text= "${employee.username}"></a></h2></td>
-        <td><h2><a th:href="'/blog/' + ${employee.username}" th:text= "${employee.username} + ' blog page'"></a></h2></td>
     </tr>
 </table>
-<!--<ul th:each="employee : ${employees}">
-    <li><a href="/login" th:text="${employee.username}"></a></li>
-    <li><a th:href="'/blog/' + ${employee.username}">Blog page</a></li>
-</ul>-->
-<!--  TODO - list all users, with links to their blog pages -->
-
 </body>
 </html>

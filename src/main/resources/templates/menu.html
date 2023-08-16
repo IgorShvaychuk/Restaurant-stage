@@ -66,7 +66,7 @@ Object[][] data = {
 	<p class="post-author">written by <a th:href="'/blog/' + ${post.author.username}" th:text="${post.author.username}"></a></p>
 
 </div>-->
-<div th:each="menuitem : ${menuitems}">
+<!--<div th:each="menuitem : ${menuitems}">
     <div th:each="post : ${posts}">
 
         <h2><a th:href="'/blog/' + ${post.author.username} + '/' + ${post.uid}" th:text="${post.title}"></a></h2>
@@ -74,7 +74,7 @@ Object[][] data = {
         <p class="post-author">written by <a th:href="'/blog/' + ${post.author.username}" th:text="${post.author.username}"></a></p>
 
     </div>
-</div>
+</div>-->
 
 </body>
 </html>

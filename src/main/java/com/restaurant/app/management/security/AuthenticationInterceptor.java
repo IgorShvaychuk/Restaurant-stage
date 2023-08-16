@@ -1,4 +1,4 @@
-package com.restaurant.app.management;
+package com.restaurant.app.management.security;
 
 import com.restaurant.app.management.controllers.AbstractController;
 import com.restaurant.app.management.model.Employee;
